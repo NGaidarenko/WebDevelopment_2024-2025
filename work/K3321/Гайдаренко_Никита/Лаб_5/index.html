@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css"/>
+    <style>
+        body{
+            background-color: antiquewhite;
+            margin: 0;
+        }
+        .message {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(255, 25, 0, 0.8);
+            border: 1px solid rgb(110, 0, 0);
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            left: 10%;
+        }
+    
+    </style>
+  </head>
+  <body>
+    <img src="image.png" alt="kitten" usemap="#map" />
+    <map id="#map" name="#map">
+        <area shape="poly" alt="" title="" coords="864,543,884,558,898,558,916,558,937,553,940,530,930,507,909,484,878,486,860,503" href="http://youtube.com/watch?v=BUNJ_BSQ_-E" target="" />
+        <area shape="poly" alt="" title="" coords="246,712,232,690,219,671,208,637,205,602,205,564,218,526,235,514,265,497,299,494,335,494,355,508,380,533,388,556,398,581,388,592,403,597,417,611,417,630,409,646,392,649,405,660,410,681,410,701,401,719,387,727,381,747,296,730,251,723" onclick="showMessage()" target="" />
+        <area shape="rect" alt="" title="" coords="1172,42,1296,84" href="order.html" target="" />
+        <area shape="circle" alt="" title="" coords="789,525,41" href="https://chatgpt.com/" target="" />
+        <area shape="poly" alt="" title="" coords="1397,228,1455,228,1443,135" onclick="showImage()" target="" />
+    </map>
+    <div class="message" id="popupMessage">Вы нажали на область!</div>
+    <img src="photo.png" class="hidden"/>
+
+    <script>
+        const body = document.querySelector('body')
+        console.log(body)
+        function showMessage() {
+            const message = document.getElementById('popupMessage');
+            message.style.display = 'block';
+            setTimeout(() => {
+                message.style.display = 'none';
+            }, 3000);
+        }
+
+        function showImage() {
+            const image = document.querySelector('.hidden');
+            console.log(image)
+            image.classList.remove('hidden');
+            image.classList.add('show');
+            setTimeout(() => {
+                image.classList.add('fade-out');
+                setTimeout(() => {
+                    image.classList.add('hidden');
+                    image.classList.remove('show', 'fade-out');
+                }, 1000);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
