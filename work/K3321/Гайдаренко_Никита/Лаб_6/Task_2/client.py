@@ -1,8 +1,8 @@
 import socket
 
-a = float(input("Введите коэффициент a: "))
-b = float(input("Введите коэффициент b: "))
-c = float(input("Введите коэффициент c: "))
+a = float(input("Введите основание 1: "))
+b = float(input("Введите основание 2: "))
+c = float(input("Введите высоту: "))
 
 client_socket = socket.socket()
 client_socket.connect(('localhost', 9090))
